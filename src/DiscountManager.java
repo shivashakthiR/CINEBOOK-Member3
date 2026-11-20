@@ -1,31 +1,28 @@
-
 import java.util.Scanner;
 
 public class DiscountManager {
 
-    Scanner sc = new Scanner(System.in);
+    Scanner sc;
 
-    // Display available offers
-    public void displayOffers() {
-
-        System.out.println("----- CINEBOOK OFFERS -----");
-        System.out.println("1. Student Discount - 10%");
-        System.out.println("2. Festival Discount - 15%");
-        System.out.println("3. Coupon MOVIE10 - 10%");
+    public DiscountManager(Scanner sc) {
+        this.sc = sc;
     }
 
-    // Check coupon validity
-    public boolean checkCoupon(String coupon) {
+    public void displayOffers() {
+        System.out.println("Student Discount: 10%");
+        System.out.println("Festival Discount: 15%");
+        System.out.println("Coupon MOVIE10: 10%");
+    }
 
+    public boolean checkCoupon(String coupon) {
         return coupon.equalsIgnoreCase("MOVIE10");
     }
 
-    // Calculate final bill
     public double calculateFinalBill(double bill) {
 
         System.out.println("Original Bill: Rs." + bill);
+        displayOffers();
 
-        System.out.println("Choose discount:");
         System.out.println("1. Student Discount");
         System.out.println("2. Festival Discount");
         System.out.println("3. Coupon");
@@ -38,18 +35,16 @@ public class DiscountManager {
         double discount = 0;
 
         if (choice == 1) {
-
             Discount d = new StudentDiscount();
             discount = d.calculateDiscount(bill);
 
         } else if (choice == 2) {
-
             Discount d = new FestivalDiscount();
             discount = d.calculateDiscount(bill);
 
         } else if (choice == 3) {
 
-            System.out.print("Enter coupon code: ");
+            System.out.print("Enter coupon: ");
             String coupon = sc.nextLine();
 
             if (checkCoupon(coupon)) {
@@ -59,11 +54,10 @@ public class DiscountManager {
             }
 
         } else if (choice != 4) {
-
             System.out.println("Invalid choice!");
         }
 
-        System.out.println("Discount Amount: Rs." + discount);
+        System.out.println("Discount: Rs." + discount);
 
         double finalBill = bill - discount;
 
@@ -72,9 +66,7 @@ public class DiscountManager {
         return finalBill;
     }
 
-    // Apply discount
     public void applyDiscount(double bill) {
-
         calculateFinalBill(bill);
     }
 }
