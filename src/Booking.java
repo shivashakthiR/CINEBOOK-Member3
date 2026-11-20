@@ -13,5 +13,23 @@ public class Booking {
         this.numberOfTickets = numberOfTickets;
         this.totalAmount = movie.getTicketPrice() * numberOfTickets;
     }
+    
+    // Getter methods
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public int getNumberOfTickets() {
+        return numberOfTickets;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
 
 }
