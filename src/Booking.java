@@ -5,16 +5,19 @@ public class Booking {
     private Movie movie;
     private int numberOfTickets;
     private double totalAmount;
+    private double finalAmount;
 
     // Constructor
     public Booking(String customerName, Movie movie, int numberOfTickets) {
+
         this.customerName = customerName;
         this.movie = movie;
         this.numberOfTickets = numberOfTickets;
+
         this.totalAmount = movie.getTicketPrice() * numberOfTickets;
+        this.finalAmount = totalAmount;
     }
-    
-    // Getter methods
+
     public String getCustomerName() {
         return customerName;
     }
@@ -31,5 +34,11 @@ public class Booking {
         return totalAmount;
     }
 
+    public double getFinalAmount() {
+        return finalAmount;
+    }
 
+    public void setFinalAmount(double finalAmount) {
+        this.finalAmount = finalAmount;
+    }
 }
