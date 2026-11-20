@@ -1,9 +1,13 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Manager {
 
     ArrayList<Movie> movies = new ArrayList<>();
+    ArrayList<Booking> bookings = new ArrayList<>();
+
+    Scanner sc = new Scanner(System.in);
 
     // Add sample movies
     public void addSampleMovies() {
@@ -39,5 +43,38 @@ public class Manager {
         }
 
         return null;
+    }
+
+    // Book movie tickets
+    public void bookTickets() {
+
+        System.out.print("Enter customer name: ");
+        String customerName = sc.nextLine();
+
+        System.out.print("Enter movie name: ");
+        String movieName = sc.nextLine();
+
+        Movie movie = findMovie(movieName);
+
+        if (movie == null) {
+            System.out.println("Movie not found!");
+            return;
+        }
+
+        System.out.print("Enter number of tickets: ");
+        int tickets = sc.nextInt();
+        sc.nextLine();
+
+        if (tickets <= 0) {
+            System.out.println("Invalid ticket quantity!");
+            return;
+        }
+
+        Booking booking = new Booking(customerName, movie, tickets);
+
+        bookings.add(booking);
+
+        System.out.println("Booking successful!");
+        System.out.println("Total Amount: Rs." + booking.getTotalAmount());
     }
 }
