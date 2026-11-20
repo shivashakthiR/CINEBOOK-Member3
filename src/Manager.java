@@ -18,21 +18,21 @@ public class Manager {
 
     }
 
-    // Display all movies
+    // Display movies
     public void displayMovies() {
 
         for (Movie movie : movies) {
 
-            System.out.println(movie.getName());
-            System.out.println(movie.getGenre());
-            System.out.println(movie.getDuration() + " minutes");
+            System.out.println("Movie: " + movie.getName());
+            System.out.println("Genre: " + movie.getGenre());
+            System.out.println("Duration: " + movie.getDuration());
             System.out.println("Price: Rs." + movie.getTicketPrice());
 
             System.out.println("--------------------");
         }
     }
 
-    // Search for a movie
+    // Search movie
     public Movie findMovie(String name) {
 
         for (Movie movie : movies) {
@@ -45,7 +45,7 @@ public class Manager {
         return null;
     }
 
-    // Book movie tickets
+    // Book tickets
     public void bookTickets() {
 
         System.out.print("Enter customer name: ");
@@ -76,5 +76,24 @@ public class Manager {
 
         System.out.println("Booking successful!");
         System.out.println("Total Amount: Rs." + booking.getTotalAmount());
+    }
+
+    // View bookings
+    public void viewBookings() {
+
+        if (bookings.isEmpty()) {
+            System.out.println("No bookings available!");
+            return;
+        }
+
+        for (Booking booking : bookings) {
+
+            System.out.println("Customer: " + booking.getCustomerName());
+            System.out.println("Movie: " + booking.getMovie().getName());
+            System.out.println("Tickets: " + booking.getNumberOfTickets());
+            System.out.println("Amount: Rs." + booking.getTotalAmount());
+
+            System.out.println("--------------------");
+        }
     }
 }
