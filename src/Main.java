@@ -22,7 +22,8 @@ public class Main {
             System.out.println("5. Calculate Bill");
             System.out.println("6. Display Offers");
             System.out.println("7. Apply Discount");
-            System.out.println("8. Exit");
+            System.out.println("8. Booking Statistics");
+System.out.println("9. Exit");
 
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
@@ -58,15 +59,15 @@ public class Main {
                     manager.applyDiscount();
                     break;
 
-                case 8:
-                    System.out.println("Thank you for using CINEBOOK!");
-                    break;
+             case 8:
+    manager.displayBookingStatistics();
+    break;
 
                 default:
                     System.out.println("Invalid choice!");
             }
 
-        } while (choice != 8);
+       } while (choice != 9);
 
         sc.close();
     }
