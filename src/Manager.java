@@ -142,4 +142,32 @@ public class Manager {
 
         System.out.println("Booking not found!");
     }
+    public void displayBookingStatistics() {
+
+    if (bookings.isEmpty()) {
+        System.out.println("No bookings available for statistics!");
+        return;
+    }
+
+    int totalBookings = bookings.size();
+    int totalTickets = 0;
+    double totalOriginalRevenue = 0;
+    double totalFinalRevenue = 0;
+
+    for (Booking booking : bookings) {
+        totalTickets += booking.getNumberOfTickets();
+        totalOriginalRevenue += booking.getTotalAmount();
+        totalFinalRevenue += booking.getFinalAmount();
+    }
+
+    double totalDiscount = totalOriginalRevenue - totalFinalRevenue;
+
+    System.out.println("\n===== BOOKING STATISTICS =====");
+    System.out.println("Total Bookings: " + totalBookings);
+    System.out.println("Total Tickets: " + totalTickets);
+    System.out.println("Original Revenue: Rs." + totalOriginalRevenue);
+    System.out.println("Discount Given: Rs." + totalDiscount);
+    System.out.println("Final Revenue: Rs." + totalFinalRevenue);
+    System.out.println("==============================");
+}
 }
