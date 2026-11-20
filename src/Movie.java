@@ -1,7 +1,6 @@
 
 public class Movie {
 
-    // Movie details
     private String name;
     private String genre;
     private int duration;
@@ -15,4 +14,20 @@ public class Movie {
         this.ticketPrice = ticketPrice;
     }
 
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public double getTicketPrice() {
+        return ticketPrice;
+    }
 }
